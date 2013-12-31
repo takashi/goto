@@ -1,0 +1,45 @@
+{
+    "name": "__MSG_appName__",
+    "version": "0.0.186",
+    "manifest_version": 2,
+    "description": "__MSG_appDescription__",
+    "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
+    "icons": {
+        "16": "images/icon-16.png",
+        "128": "images/icon-128.png"
+    },
+    "permissions": [
+        "tabs"
+    ],
+    "content_scripts": [
+        {
+            "matches": [
+                "*://*/*"
+            ],
+            "js": [
+                "content_scripts/ui.js",
+                "content_scripts/keymaps.js"
+            ],
+            "css": [
+                "content_scripts/default.css"
+            ]
+        }
+    ],
+    "default_locale": "en",
+    "background": {
+        "scripts": [
+            "lib/underscore.js",
+            "lib/fuse.js",
+            "lib/background.js"
+        ],
+        "persistent": false
+    },
+    "page_action": {
+        "default_icon": {
+            "19": "images/icon-19.png",
+            "38": "images/icon-38.png"
+        },
+        "default_title": "goto",
+        "default_popup": "popup.html"
+    }
+}
